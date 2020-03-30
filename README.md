@@ -9,4 +9,4 @@ My goal is to use Puppet to configure my 3 main devices:
  - My server running Ubuntu Server (also waiting for Focal)
 
 Note that this config is inspired by https://github.com/asottile/personal-puppet, and I am greatly
-endebted to Anthony for help in setting this config up, so thanks to him!
+indebted to Anthony for help in setting this config up, so thanks to him!
