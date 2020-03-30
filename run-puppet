@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+import os.path
+import shutil
+import subprocess
+import sys
+
+if sys.platform == 'linux':
+    CACHE_DIR = os.environ.get('XDG_CACHE_DIR', os.path.expanduser('~/.cache'))
+else:
+    CACHE_DIR = os.environ.get('LOCALAPPDATA')
+PERSONAL_PUPPET = os.path.join(
+    CACHE_DIR,
+    'personal-puppet',
+)
+GEM_HOME = os.path.join(PERSONAL_PUPPET, 'gems')
+GEM_BIN = os.path.join(GEM_HOME, 'bin')
+PUPPET_BIN = os.path.join(GEM_BIN, 'puppet')
+
+HERE = os.path.dirname(os.path.realpath(__file__))
+MODULE_PATH = os.pathsep.join(
+    os.path.join(HERE, d)
+    for d in ('modules', 'vendor')
+)
+
+
+def _msg(s: str) -> None:
+    print('=' * 79)
+    print(s)
+    print('=' * 79, flush=True)
+
+
+def main() -> int:
+    if subprocess.call(('ssh-add', '-l'), stdout=subprocess.DEVNULL):
+        subprocess.check_call('ssh-add')
+
+    os.environ['GEM_HOME'] = GEM_HOME
+    os.environ['PATH'] = GEM_BIN + os.pathsep + os.environ['PATH']
+    for exe, version in (('puppet', '6.14.0'), ('r10k', '3.4.1')):
+        if not os.path.exists(os.path.join(GEM_BIN, exe)):
+            _msg('Ensuring {} is installed...'.format(exe))
+
+            cmd = ['gem.cmd', 'install', exe, '-v', version, '--no-document']
+            subprocess.check_call(cmd)
+
+    _msg('Installing puppet modules...')
+    r10k_exe = shutil.which('r10k')
+    assert r10k_exe is not None, "Could not find r10k executable"
+    subprocess.check_call([r10k_exe, 'puppetfile', 'install'], cwd=HERE)
+    subprocess.check_call([r10k_exe, 'puppetfile', 'purge'], cwd=HERE)
+
+    _msg('Execing puppet')
+    puppet_exe = shutil.which('puppet')
+    assert puppet_exe is not None, "Could not find puppet executable"
+    if sys.platform == 'win32':
+        cmd = [puppet_exe]
+    else:
+        cmd = ['sudo', puppet_exe]
+    cmd.extend([
+        'apply', '-v', '--show_diff',
+        '--modulepath', MODULE_PATH,
+        os.path.join(HERE, 'manifests/site.pp'),
+        *sys.argv[1:], ])
+    return subprocess.check_call(cmd)
+
+
+if __name__ == '__main__':
+    exit(main())

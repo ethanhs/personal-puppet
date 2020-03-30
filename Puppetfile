@@ -1,0 +1,13 @@
+moduledir 'vendor'
+
+mod 'puppetlabs-windows', '6.1.0'
+mod 'puppetlabs-chocolatey', '5.0.2'
+mod 'puppetlabs-powershell', '3.0.1'
+mod 'puppetlabs-pwshlib', '0.4.1'
+mod 'puppetlabs-registry', '3.1.0'
+mod 'puppet-windows_env', '3.2.0'
+mod 'puppet-download_file', '3.2.0'
+mod 'puppet-archive', '4.4.0'
+mod 'puppetlabs-apt', '7.4.1'
+mod 'puppetlabs-stdlib', '6.2.0'
+mod 'puppetlabs-vcsrepo', '3.1.0'
