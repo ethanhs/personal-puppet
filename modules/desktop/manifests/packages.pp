@@ -185,6 +185,7 @@ class desktop::packages {
     'windirstat',
     'wireshark',
     'wsltty',
+    'yubikey-manager',
   ]
 
   package { $all_other_packages:
