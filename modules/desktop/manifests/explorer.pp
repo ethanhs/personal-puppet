@@ -35,12 +35,6 @@ class desktop::explorer {
     data   => 0,
   }
 
-  registry_value { 'HKLM\\Software\\Policies\\Microsoft\\Windows\\CurrentVersion\\GameDVR\\AppCaptureEnabled':
-    ensure => present,
-    type   => dword,
-    data   => 0,
-  }
-
   # Allow sideloading UWP apps
   registry_value { 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowDevelopmentWithoutDevLicense':
     ensure => present,
