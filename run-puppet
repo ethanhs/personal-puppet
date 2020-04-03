@@ -22,6 +22,12 @@ MODULE_PATH = os.pathsep.join(
     for d in ('modules', 'vendor')
 )
 
+GEMS = (
+    ('puppet', 'puppet', '6.14.0'),
+    ('r10k', 'r10k', '3.4.1'),
+    ('eyaml', 'hiera-eyaml-cli', '0.2')
+)
+
 
 def _msg(s: str) -> None:
     print('=' * 79)
@@ -35,11 +41,11 @@ def main() -> int:
 
     os.environ['GEM_HOME'] = GEM_HOME
     os.environ['PATH'] = GEM_BIN + os.pathsep + os.environ['PATH']
-    for exe, version in (('puppet', '6.14.0'), ('r10k', '3.4.1')):
+    for exe, gem, version in GEMS:
         if not os.path.exists(os.path.join(GEM_BIN, exe)):
-            _msg('Ensuring {} is installed...'.format(exe))
+            _msg('Ensuring {} is installed...'.format(gem))
 
-            cmd = ['gem.cmd', 'install', exe, '-v', version, '--no-document']
+            cmd = ['gem.cmd', 'install', gem, '-v', version, '--no-document']
             subprocess.check_call(cmd)
 
     _msg('Installing puppet modules...')
@@ -58,6 +64,7 @@ def main() -> int:
     cmd.extend([
         'apply', '-v', '--show_diff',
         '--modulepath', MODULE_PATH,
+        '--hiera_config', os.path.join(HERE, 'hiera.yaml'),
         os.path.join(HERE, 'manifests/site.pp'),
         *sys.argv[1:], ])
     return subprocess.check_call(cmd)
