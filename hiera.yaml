@@ -1,0 +1,10 @@
+version: 5
+hierarchy:
+    -   name: "Common secret data"
+        lookup_key: eyaml_lookup_key
+        path: common.eyaml
+        options:
+          cli_encrypt_command: "gpg --encrypt --armor -r ethan@ethanhs.me"
+          cli_decrypt_command: "gpg -d --armor"
+    -   name: "Common data"
+        path: common.yaml
