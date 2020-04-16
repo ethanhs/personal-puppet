@@ -15,7 +15,7 @@ repos:
         rev: 3.7.9
         hooks:
         -   id: flake8
-            language_version: python3.6
+            language_version: python3.8
     -   repo: https://github.com/pre-commit/mirrors-autopep8
         rev: v1.5
         hooks:
@@ -24,7 +24,7 @@ repos:
         rev: v1.9.0
         hooks:
         -   id: reorder-python-imports
-            args: [--py3-plus]
+            args: [--py37-plus]
     -   repo: https://github.com/asottile/add-trailing-comma
         rev: v1.5.0
         hooks:
