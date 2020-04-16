@@ -3,6 +3,7 @@ import os.path
 import shutil
 import subprocess
 import sys
+import os
 
 if sys.platform == 'linux':
     CACHE_DIR = os.environ.get('XDG_CACHE_DIR', os.path.expanduser('~/.cache'))
@@ -23,9 +24,10 @@ MODULE_PATH = os.pathsep.join(
 )
 
 GEMS = (
-    ('puppet', 'puppet', '6.14.0'),
+    ('puppet', 'puppet', '6.14'),
     ('r10k', 'r10k', '3.4.1'),
-    ('eyaml', 'hiera-eyaml-cli', '0.2')
+    ('eyaml', 'hiera-eyaml', '3.2'),
+    ('eyaml', 'hiera-eyaml-cli', '0.3'),
 )
 
 
@@ -44,8 +46,12 @@ def main() -> int:
     for exe, gem, version in GEMS:
         if not os.path.exists(os.path.join(GEM_BIN, exe)):
             _msg('Ensuring {} is installed...'.format(gem))
-
-            cmd = ['gem.cmd', 'install', gem, '-v', version, '--no-document']
+            if sys.platform == 'win32':
+                gem_cmd = 'gem.cmd'
+            else:
+                gem_cmd = 'gem'
+            cmd = [gem_cmd, 'install', gem, '-v', version, '--no-document']
+            print(*cmd, sep=' ')
             subprocess.check_call(cmd)
 
     _msg('Installing puppet modules...')
@@ -60,13 +66,22 @@ def main() -> int:
     if sys.platform == 'win32':
         cmd = [puppet_exe]
     else:
-        cmd = ['sudo', puppet_exe]
+        cmd = [
+            'sudo',
+            'env',
+            'PATH={}'.format(os.environ['PATH']),
+            'GEM_HOME={}'.format(os.environ['GEM_HOME']),
+            'SSH_AUTH_SOCK={}'.format(os.environ['SSH_AUTH_SOCK']),
+            f'GPG_TTY={os.ttyname(sys.stdout.fileno())}',
+            puppet_exe,
+        ]
     cmd.extend([
         'apply', '-v', '--show_diff',
         '--modulepath', MODULE_PATH,
         '--hiera_config', os.path.join(HERE, 'hiera.yaml'),
         os.path.join(HERE, 'manifests/site.pp'),
         *sys.argv[1:], ])
+    print(*cmd, sep=' ')
     return subprocess.check_call(cmd)
 
 
