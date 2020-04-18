@@ -41,6 +41,7 @@ class laptop::packages {
     # https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/drivers.pp
 
     # TODO: use OCF apt? or another one? https://github.com/ocf/puppet/blob/4e37cbedd228d89bc2f32234dbb4fc54114faa9d/modules/ocf/manifests/apt.pp
+    # TODO: LLVM apt
 
     apt::key { 'vscode':
       id     => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
