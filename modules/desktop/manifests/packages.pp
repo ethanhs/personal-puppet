@@ -119,7 +119,7 @@ class desktop::packages {
     'cpu-z',
     'crystaldiskinfo',
     'crystaldiskmark',
-    'cwrsync',
+    'rsync',
     'Cygwin',
     'dejavufonts',
     'deluge',

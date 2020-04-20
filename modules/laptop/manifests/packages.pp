@@ -56,10 +56,10 @@ class laptop::packages {
       require      => Apt::Key['vscode'],
     }
 
-      apt::key { 'google':
-    id     => 'EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796',
-    source => 'https://dl-ssl.google.com/linux/linux_signing_key.pub';
-  }
+    apt::key { 'google':
+      id     => 'EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796',
+      source => 'https://dl-ssl.google.com/linux/linux_signing_key.pub';
+    }
 
   # Chrome creates /etc/apt/sources.list.d/google-chrome.list upon
   # installation, so we use the name 'google-chrome' to avoid duplicates

@@ -1,0 +1,27 @@
+UserKnownHostsFile C:\Users\ethanhs\.ssh\known_hosts
+
+Host thewatch
+    HostName ssh.ethanhs.me
+    User ethan
+    IdentityFile C:\Users\ethanhs\.ssh\id_rsa
+
+Host panic
+    HostName panic.ocf.berkeley.edu
+    User ethanhs
+
+Host y2k
+    HostName y2k
+    User ethanhs
+    ProxyJump supernova
+
+Host supernova
+    HostName supernova.ocf.berkeley.edu
+    User ethanhs
+
+Host minecraftOCF
+    HostName supernova.ocf.berkeley.edu
+    LocalForward 25565 zombies:25565
+
+Host lightning
+    HostName lightning
+    ProxyJump panic
