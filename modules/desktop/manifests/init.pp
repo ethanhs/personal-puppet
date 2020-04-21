@@ -1,4 +1,5 @@
 class desktop {
+  include desktop::backup
   include desktop::env
   include desktop::explorer
   include desktop::packages
