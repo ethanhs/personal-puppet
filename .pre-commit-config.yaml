@@ -37,6 +37,8 @@ repos:
         -   id: puppet-validate
         -   id: puppet-lint
             args: [
+                --with-filename,
+                --with-context,
                 --fix, --fail-on-warnings,
                 --no-documentation-check,
                 --no-arrow_on_right_operand_line-check,
