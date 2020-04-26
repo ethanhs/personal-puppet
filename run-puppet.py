@@ -3,7 +3,6 @@ import os.path
 import shutil
 import subprocess
 import sys
-import os
 
 if sys.platform == 'linux':
     CACHE_DIR = os.environ.get('XDG_CACHE_DIR', os.path.expanduser('~/.cache'))

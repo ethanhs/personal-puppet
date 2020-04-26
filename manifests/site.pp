@@ -14,7 +14,7 @@ node default {
       include desktop
     }
     default : {
-      fail("Unknown machine")
+      fail('Unknown machine')
     }
   }
 }
