@@ -1,4 +1,10 @@
+Host *
+
 UserKnownHostsFile C:\Users\ethanhs\.ssh\known_hosts
+
+ControlMaster auto
+ControlPersist 900
+ControlPath ~/.ssh/sockets/socket-%r@%h:%p
 
 Host thewatch
     HostName ssh.ethanhs.me
