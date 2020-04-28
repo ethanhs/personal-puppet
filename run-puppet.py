@@ -68,7 +68,7 @@ def main() -> int:
         cmd = [
             'sudo',
             'env',
-            'RUBYOPT="-W0 -W:no-deprecated -W:no-experimental"'
+            'RUBYOPT=-W0 -W:no-deprecated -W:no-experimental',
             'PATH={}'.format(os.environ['PATH']),
             'GEM_HOME={}'.format(os.environ['GEM_HOME']),
             'SSH_AUTH_SOCK={}'.format(os.environ['SSH_AUTH_SOCK']),
