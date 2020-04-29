@@ -112,6 +112,7 @@ class desktop::packages {
 
   $all_other_packages = [
     '7zip',
+    'adb',
     'androidstudio',
     'blender',
     'bonjour',
