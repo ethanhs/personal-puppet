@@ -42,8 +42,6 @@ class laptop::packages {
     package {'devscripts': ensure => 'latest' }
     package {'git-buildpackage': ensure => 'latest' }
 
-    # TODO: docker https://github.com/asottile/personal-puppet/blob/master/modules/packages/manifests/docker.pp
-
     $deadsnakes_pkgs = ['python3.7-dev', 'python3.8-dev', 'python3.9-dev']
     apt::ppa { 'ppa:deadsnakes/ppa': } ->
     package { $deadsnakes_pkgs:

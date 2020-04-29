@@ -4,6 +4,7 @@ class laptop {
     include laptop::gpg
     include laptop::packages
     include laptop::yubikey
+    include laptop::docker
     class { 'apt':
       update => {
       frequency => 'daily',
