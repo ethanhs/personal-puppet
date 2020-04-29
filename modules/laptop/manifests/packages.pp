@@ -1,15 +1,24 @@
 class laptop::packages {
     # General pacakges
     $packages = [
+      # utilities
       'curl',
       'dos2unix',
       'graphviz',
 
+      # Python
       'python3-venv',
       'python3-dev',
       'python3-dbg',
+
+      # editors
       'vim',
+
+      # media
       'vlc',
+
+      # deps
+      'software-properties-common',
     ]
 
     # TODO: more packages? https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/packages.pp
@@ -34,8 +43,13 @@ class laptop::packages {
     package {'git-buildpackage': ensure => 'latest' }
 
     # TODO: docker https://github.com/asottile/personal-puppet/blob/master/modules/packages/manifests/docker.pp
-    # TODO: deadsnakes https://github.com/asottile/personal-puppet/blob/master/modules/packages/manifests/python.pp
-    #apt::ppa { 'ppa:deadsnakes/ppa': }
+
+    $deadsnakes_pkgs = ['python3.7-dev', 'python3.8-dev', 'python3.9-dev']
+    apt::ppa { 'ppa:deadsnakes/ppa': } ->
+    package { $deadsnakes_pkgs:
+      ensure  => 'latest',
+      require => Exec['apt_update'],
+    }
 
     # TODO: graphics drivers
     # https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/drivers.pp
