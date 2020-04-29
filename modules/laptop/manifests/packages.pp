@@ -73,4 +73,13 @@ class laptop::packages {
       repos    => 'main',
       require  => Apt::Key['google'];
   }
+
+
+  $snaps = ['spotify', 'discord', 'code', 'skype']
+  package { $snaps:
+    ensure          => latest,
+    provider        => snap,
+    install_options => ['--classic'],
+  }
+
 }
