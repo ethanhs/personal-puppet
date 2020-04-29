@@ -81,6 +81,7 @@ class laptop::packages {
     # misc
     'hexchat',
     'gparted',
+    'scrcpy',
   ]
 
   # TODO: more packages? https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/packages.pp

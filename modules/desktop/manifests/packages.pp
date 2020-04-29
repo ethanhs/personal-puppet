@@ -169,6 +169,7 @@ class desktop::packages {
     'riot-web',
     'ripgrep',
     'rufus',
+    'scrcpy',
     'sharex',
     'sidesync',
     'steam',
