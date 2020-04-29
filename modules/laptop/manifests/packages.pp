@@ -31,6 +31,25 @@ class laptop::packages {
       require  => Apt::Key['google'];
   }
 
+  apt::key {
+    'llvm':
+    id     => '6084F3CF814B57C1CF12EFD515CF4D18AF4F7421',
+    source => 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+  }
+
+  apt::source {
+    'llvm-10':
+    architecture => 'amd64',
+    location     => 'http://apt.llvm.org/focal/',
+    release      => 'llvm-toolchain-focal',
+    repos        => 'main',
+    include      => {
+      'src' => true,
+      'deb' => true,
+    },
+    require      => Apt::Key['llvm']
+  }
+
   # General pacakges
   $packages = [
     # utilities
@@ -42,6 +61,10 @@ class laptop::packages {
     'python3-venv',
     'python3-dev',
     'python3-dbg',
+
+    # llvm/clang
+    'clang',
+    'clang-10',
 
     # editors
     'code',
@@ -85,8 +108,6 @@ class laptop::packages {
   # TODO: graphics drivers
   # https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/drivers.pp
 
-  # TODO: use OCF apt? or another one? https://github.com/ocf/puppet/blob/4e37cbedd228d89bc2f32234dbb4fc54114faa9d/modules/ocf/manifests/apt.pp
-  # TODO: LLVM apt
 
   $snaps = ['spotify', 'discord', 'skype']
   package { $snaps:
