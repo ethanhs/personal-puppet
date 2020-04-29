@@ -72,9 +72,15 @@ class laptop::packages {
 
     # media
     'vlc',
+    'inkscape',
+    'gimp',
 
     # deps
     'software-properties-common',
+
+    # misc
+    'hexchat',
+    'gparted',
   ]
 
   # TODO: more packages? https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/packages.pp
