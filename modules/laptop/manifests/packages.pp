@@ -111,6 +111,12 @@ class laptop::packages {
     require => Exec['apt_update'],
   }
 
+  apt::ppa { 'ppa:unit193/encryption': } ->
+  package { 'veracrypt':
+    ensure  => latest,
+    require => Exec['apt_update']
+  }
+
   # TODO: graphics drivers
   # https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/drivers.pp
 
