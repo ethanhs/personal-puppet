@@ -56,6 +56,7 @@ class laptop::packages {
     'curl',
     'dos2unix',
     'graphviz',
+    'smartmontools',
 
     # Python
     'python3-venv',
@@ -110,6 +111,12 @@ class laptop::packages {
   package { $deadsnakes_pkgs:
     ensure  => 'latest',
     require => Exec['apt_update'],
+  }
+
+  apt::ppa { 'ppa:unit193/encryption': } ->
+  package { 'veracrypt':
+    ensure  => latest,
+    require => Exec['apt_update']
   }
 
   # TODO: graphics drivers
