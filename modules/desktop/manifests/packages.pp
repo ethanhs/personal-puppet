@@ -112,6 +112,7 @@ class desktop::packages {
 
   $all_other_packages = [
     '7zip',
+    'adb',
     'androidstudio',
     'blender',
     'bonjour',
@@ -169,6 +170,7 @@ class desktop::packages {
     'riot-web',
     'ripgrep',
     'rufus',
+    'scrcpy',
     'sharex',
     'sidesync',
     'steam',
