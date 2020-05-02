@@ -56,6 +56,7 @@ class laptop::packages {
     'curl',
     'dos2unix',
     'graphviz',
+    'smartmontools',
 
     # Python
     'python3-venv',
