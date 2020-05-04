@@ -159,6 +159,7 @@ class desktop::packages {
     'nsis-unicode',
     'nvm',
     'obs-studio',
+    'opencl-intel-cpu-runtime',
     'openhardwaremonitor',
     'OpenSSL.Light',
     'openvpn',
