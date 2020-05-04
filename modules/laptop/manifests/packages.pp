@@ -98,6 +98,9 @@ class laptop::packages {
     'libreadline-dev',
     'libsqlite3-dev',
     'ruby-dev',
+    # opencl/pyopencl
+    'python3-pyopencl',
+    'nvidia-opencl-dev',
   ]
   package { $deps: ensure => 'latest' }
 
