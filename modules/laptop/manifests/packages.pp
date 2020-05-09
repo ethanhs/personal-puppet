@@ -98,6 +98,9 @@ class laptop::packages {
     'libreadline-dev',
     'libsqlite3-dev',
     'ruby-dev',
+    # opencl/pyopencl
+    'python3-pyopencl',
+    'nvidia-opencl-dev',
   ]
   package { $deps: ensure => 'latest' }
 
@@ -123,7 +126,7 @@ class laptop::packages {
   # https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/drivers.pp
 
 
-  $snaps = ['spotify', 'discord', 'skype']
+  $snaps = ['spotify', 'discord', 'skype', 'signal-desktop']
   package { $snaps:
     ensure          => latest,
     provider        => snap,
