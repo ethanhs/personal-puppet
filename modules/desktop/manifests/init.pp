@@ -6,4 +6,5 @@ class desktop {
   include desktop::clink
   include desktop::all_repos
   include desktop::gpg
+  include desktop::suspend
 }
