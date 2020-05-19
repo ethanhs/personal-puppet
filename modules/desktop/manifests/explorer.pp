@@ -42,13 +42,7 @@ class desktop::explorer {
     data   => 1,
   }
 
-  # Stop Explorer while we change a few things
-  exec { 'stop explorer':
-    command  => 'Stop-Process -processname explorer',
-    provider => powershell,
-  }
-
-  # Open in current folder
+   # Open in current folder
   registry_value { 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\NavPaneExpandToCurrentFolder':
     ensure => present,
     type   => dword,
@@ -76,9 +70,16 @@ class desktop::explorer {
     data   => 2,
   }
 
-  # Start explorer again
-  exec { 'start explorer':
-    command  => 'Start-Process -processname explorer',
+  # Stop Explorer while we change a few things
+  exec { 'stop explorer':
+    command  => 'Stop-Process -processname explorer',
+    unless   => "Get-ItemProperty -Path HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced -Name PuppetRan",
     provider => powershell,
+  }
+
+  registry_value { 'HKLM\\Software\\\\Windows\\CurrentVersion\\Explorer\\Advanced\\PuppetRan':
+    ensure => present,
+    type   => dword,
+    data   => 1,
   }
 }

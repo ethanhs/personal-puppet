@@ -7,4 +7,5 @@ class desktop {
   include desktop::all_repos
   include desktop::gpg
   include desktop::suspend
+  include desktop::vcpkg
 }
