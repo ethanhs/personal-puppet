@@ -42,7 +42,7 @@ class desktop::explorer {
     data   => 1,
   }
 
-   # Open in current folder
+  # Open in current folder
   registry_value { 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\NavPaneExpandToCurrentFolder':
     ensure => present,
     type   => dword,

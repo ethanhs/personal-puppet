@@ -16,5 +16,5 @@ class desktop::vcpkg {
     provider => powershell,
   }
 
-  
+
 }

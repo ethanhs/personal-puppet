@@ -12,12 +12,12 @@ class desktop::suspend {
 
   scheduled_task { 'Suspend in the morning':
     ensure    => 'present',
-    command   => "$::system32\\WindowsPowerShell\\v1.0\\powershell.exe",
-    arguments => '-File ${suspend_script}',
+    command   => "${::system32}\\WindowsPowerShell\\v1.0\\powershell.exe",
+    arguments => "-File ${suspend_script}",
     enabled   => 'true',
     trigger   => [{
-      'schedule'    => 'daily',
-      'start_time'  => '06:00',
+      'schedule'   => 'daily',
+      'start_time' => '06:00',
     }],
     user      => 'system',
   }
