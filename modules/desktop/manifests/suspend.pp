@@ -7,7 +7,7 @@ class desktop::suspend {
 
   file { 'suspend.ps1':
     path   => $suspend_script,
-    source => 'puppet:///modules/desktop/.gitconfig',
+    source => 'puppet:///modules/desktop/suspend.ps1',
   }
 
   scheduled_task { 'Suspend in the morning':

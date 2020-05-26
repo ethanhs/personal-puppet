@@ -147,6 +147,7 @@ class desktop::packages {
     'gsmartcontrol',
     'hexchat',
     'hwinfo',
+    'imdisk-toolkit',
     'InkScape',
     'jq',
     'keepassxc',
