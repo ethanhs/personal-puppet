@@ -57,6 +57,8 @@ class laptop::packages {
     'dos2unix',
     'graphviz',
     'smartmontools',
+    'freerdp2-x11',
+    'aria2',
 
     # Python
     'python3-venv',
@@ -101,6 +103,8 @@ class laptop::packages {
     # opencl/pyopencl
     'python3-pyopencl',
     'nvidia-opencl-dev',
+    # UniversalQ
+    'uuid-dev',
   ]
   package { $deps: ensure => 'latest' }
 

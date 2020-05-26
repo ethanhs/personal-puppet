@@ -5,9 +5,10 @@ class laptop {
     include laptop::packages
     include laptop::yubikey
     include laptop::docker
+    include laptop::xfreerdp
     class { 'apt':
       update => {
-      frequency => 'daily',
-    },
-}
+        frequency => 'daily',
+      },
+    }
 }
