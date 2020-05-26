@@ -7,9 +7,8 @@ class laptop {
     include laptop::docker
     include laptop::xfreerdp
     include laptop::ssh
-    class { 'apt':
-      update => {
-        frequency => 'daily',
-      },
+    class { 'unattended_upgrades':
+      mail => { 'to' => 'ethan@ethanhs.me', },
     }
+
 }
