@@ -6,6 +6,7 @@ class laptop {
     include laptop::yubikey
     include laptop::docker
     include laptop::xfreerdp
+    include laptop::ssh
     class { 'apt':
       update => {
         frequency => 'daily',
