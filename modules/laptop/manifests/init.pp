@@ -5,9 +5,10 @@ class laptop {
     include laptop::packages
     include laptop::yubikey
     include laptop::docker
-    class { 'apt':
-      update => {
-      frequency => 'daily',
-    },
-}
+    include laptop::xfreerdp
+    include laptop::ssh
+    class { 'unattended_upgrades':
+      mail => { 'to' => 'ethan@ethanhs.me', },
+    }
+
 }

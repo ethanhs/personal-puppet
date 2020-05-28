@@ -57,6 +57,9 @@ class laptop::packages {
     'dos2unix',
     'graphviz',
     'smartmontools',
+    'freerdp2-x11',
+    'aria2',
+    'git',
 
     # Python
     'python3-venv',
@@ -66,6 +69,9 @@ class laptop::packages {
     # llvm/clang
     'clang',
     'clang-10',
+
+    # c++
+    'cmake',
 
     # editors
     'code',
@@ -101,6 +107,11 @@ class laptop::packages {
     # opencl/pyopencl
     'python3-pyopencl',
     'nvidia-opencl-dev',
+    # UniversalQ
+    'uuid-dev',
+    # plotinus
+    'valac',
+    'libgtk-3-dev'
   ]
   package { $deps: ensure => 'latest' }
 
