@@ -11,7 +11,11 @@ class laptop::all_repos {
     content => lookup('all_repos::config_file_content'),
     owner   => 'ethanhs',
     group   => 'ethanhs',
-    mode    => '0660',
+    mode    => '0600',
   }
 
+  package {'all-repos':
+    ensure   => 'latest',
+    provider => 'pip3',
+  }
 }

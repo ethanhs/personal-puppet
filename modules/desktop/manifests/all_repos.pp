@@ -9,7 +9,10 @@ class desktop::all_repos {
 
   file { $all_repos_config_path:
     ensure  => file,
-    content => lookup('all_repos::config_file_content')
+    content => lookup('all_repos::config_file_content'),
+    owner   => 'ethanhs',
+    group   => 'ethanhs',
+    mode    => '0600',
   }
 
 }
