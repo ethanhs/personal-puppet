@@ -9,5 +9,5 @@ hierarchy:
       lookup_key: eyaml_lookup_key
       path: common.eyaml
       options:
-        cli_encrypt_command: "gpg --encrypt --armor -r 6637DCB92ECCEC1F"
+        cli_encrypt_command: "gpg --encrypt --armor -r 6637DCB92ECCEC1F -r 165C135220B01D84"
         cli_decrypt_command: "gpg -d --armor"
