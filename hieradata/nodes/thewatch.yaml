@@ -1,6 +1,0 @@
-- name: "Server secrets"
-  lookup_key: eyaml_lookup_key
-  path: thewatch.eyaml
-  options:
-    cli_encrypt_command: "gpg --encrypt --armor -r 165C135220B01D84"
-    cli_decrypt_command: "gpg -d --armor"

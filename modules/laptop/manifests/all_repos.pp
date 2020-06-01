@@ -8,7 +8,7 @@ class laptop::all_repos {
 
   file { '/home/ethanhs/.all_repos/all_repos.json':
     ensure  => file,
-    content => lookup('desktop::all_repos::config_file_content'),
+    content => lookup('all_repos::config_file_content'),
     owner   => 'ethanhs',
     group   => 'ethanhs',
     mode    => '0660',

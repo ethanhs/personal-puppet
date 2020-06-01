@@ -2,7 +2,12 @@ version: 5
 
 defaults:
     datadir: hieradata
+    data_hash: yaml_data
 
 hierarchy:
-    - name: "Nodes data"
-      path: "nodes/%{::hostname}.yaml"
+    - name: "Common secret data"
+      lookup_key: eyaml_lookup_key
+      path: common.eyaml
+      options:
+        cli_encrypt_command: "gpg --encrypt --armor -r 6637DCB92ECCEC1F"
+        cli_decrypt_command: "gpg -d --armor"
