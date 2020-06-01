@@ -1,0 +1,6 @@
+- name: "Laptop secrets"
+  lookup_key: eyaml_lookup_key
+  path: mendeddrum.eyaml
+  options:
+    cli_encrypt_command: "gpg --encrypt --armor -r 6637DCB92ECCEC1F"
+    cli_decrypt_command: "gpg -d --armor"
