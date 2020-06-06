@@ -60,6 +60,7 @@ class laptop::packages {
     'freerdp2-x11',
     'aria2',
     'git',
+    'ripgrep',
 
     # Python
     'python3-venv',
