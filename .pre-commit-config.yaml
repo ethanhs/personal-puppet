@@ -30,8 +30,8 @@ repos:
         hooks:
         -   id: add-trailing-comma
             args: [--py36-plus]
-    -   repo: https://github.com/chriskuehl/puppet-pre-commit-hooks
-        rev: v2.1.0
+    -   repo: https://github.com/ethanhs/puppet-pre-commit-hooks
+        rev: patch-1
         hooks:
         -   id: r10k-validate
         -   id: puppet-validate

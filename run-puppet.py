@@ -7,7 +7,7 @@ import sys
 if sys.platform == 'linux':
     CACHE_DIR = os.environ.get('XDG_CACHE_DIR', os.path.expanduser('~/.cache'))
 else:
-    CACHE_DIR = os.environ.get('LOCALAPPDATA')
+    CACHE_DIR = os.environ.get('LOCALAPPDATA', os.path.expanduser('~/.cache'))
 PERSONAL_PUPPET = os.path.join(
     CACHE_DIR,
     'personal-puppet',
