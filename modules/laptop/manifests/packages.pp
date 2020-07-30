@@ -86,8 +86,11 @@ class laptop::packages {
     # deps
     'software-properties-common',
 
-    # misc
+    # chat
+    'telegram-desktop',
     'hexchat',
+
+    # misc
     'gparted',
     'scrcpy',
   ]
@@ -112,7 +115,10 @@ class laptop::packages {
     'uuid-dev',
     # plotinus
     'valac',
-    'libgtk-3-dev'
+    'libgtk-3-dev',
+    # scrs
+    'libopenblas-dev',
+    'libceres-dev'
   ]
   package { $deps: ensure => 'latest' }
 
