@@ -93,6 +93,11 @@ class laptop::packages {
     # misc
     'gparted',
     'scrcpy',
+
+    # KDE/GSConnect
+    'gnome-shell-extensions',
+    'gnome-shell-extension-gsconnect',
+    'gnome-shell-extension-gsconnect-browsers',
   ]
 
   # TODO: more packages? https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/packages.pp
