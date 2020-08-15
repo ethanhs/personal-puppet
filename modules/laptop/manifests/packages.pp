@@ -61,6 +61,7 @@ class laptop::packages {
     'aria2',
     'git',
     'ripgrep',
+    'iperf',
 
     # Python
     'python3-venv',
