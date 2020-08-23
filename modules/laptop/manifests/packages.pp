@@ -99,6 +99,9 @@ class laptop::packages {
     'gnome-shell-extensions',
     'gnome-shell-extension-gsconnect',
     'gnome-shell-extension-gsconnect-browsers',
+
+    #games
+    'steam',
   ]
 
   # TODO: more packages? https://github.com/ocf/puppet/blob/master/modules/ocf_desktop/manifests/packages.pp
