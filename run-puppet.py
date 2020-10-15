@@ -23,10 +23,11 @@ MODULE_PATH = os.pathsep.join(
 )
 
 GEMS = (
-    ('puppet', 'puppet', '6.14'),
-    ('r10k', 'r10k', '3.4.1'),
+    (None, 'ffi', '1.13.1'),
+    ('puppet', 'puppet', '6.17'),
+    ('r10k', 'r10k', '3.5.2'),
     ('eyaml', 'hiera-eyaml', '3.2'),
-    ('eyaml', 'hiera-eyaml-cli', '0.3'),
+    (None, 'hiera-eyaml-cli', '0.3'),
 )
 
 
@@ -43,7 +44,7 @@ def main() -> int:
     os.environ['GEM_HOME'] = GEM_HOME
     os.environ['PATH'] = GEM_BIN + os.pathsep + os.environ['PATH']
     for exe, gem, version in GEMS:
-        if not os.path.exists(os.path.join(GEM_BIN, exe)):
+        if exe is None or not os.path.exists(os.path.join(GEM_BIN, exe)):
             _msg('Ensuring {} is installed...'.format(gem))
             if sys.platform == 'win32':
                 gem_cmd = 'gem.cmd'
