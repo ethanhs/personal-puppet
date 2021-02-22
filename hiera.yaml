@@ -4,7 +4,7 @@ hierarchy:
         lookup_key: eyaml_lookup_key
         path: common.eyaml
         options:
-          cli_encrypt_command: "gpg --encrypt --armor -r 6637DCB92ECCEC1F"
-          cli_decrypt_command: "gpg -d --armor"
+          cli_encrypt_command: '"C:\Program Files (x86)\GnuPG\bin\gpg.exe" --encrypt --armor -r 2D8FF4BE4BD6E988'
+          cli_decrypt_command: '"C:\Program Files (x86)\GnuPG\bin\gpg.exe" -d --armor'
     -   name: "Common data"
         path: common.yaml
