@@ -1,6 +1,6 @@
 repos:
     -   repo: https://github.com/pre-commit/pre-commit-hooks
-        rev: v2.4.0
+        rev: v3.4.0
         hooks:
         -   id: trailing-whitespace
         -   id: end-of-file-fixer
@@ -12,26 +12,26 @@ repos:
         -   id: check-merge-conflict
         -   id: detect-private-key
     -   repo: https://gitlab.com/pycqa/flake8
-        rev: 3.7.9
+        rev: 3.8.4
         hooks:
         -   id: flake8
             language_version: python3.8
     -   repo: https://github.com/pre-commit/mirrors-autopep8
-        rev: v1.5
+        rev: v1.5.4
         hooks:
         -   id: autopep8
     -   repo: https://github.com/asottile/reorder_python_imports
-        rev: v1.9.0
+        rev: v2.4.0
         hooks:
         -   id: reorder-python-imports
             args: [--py37-plus]
     -   repo: https://github.com/asottile/add-trailing-comma
-        rev: v1.5.0
+        rev: v2.1.0
         hooks:
         -   id: add-trailing-comma
             args: [--py36-plus]
     -   repo: https://github.com/ethanhs/puppet-pre-commit-hooks
-        rev: patch-1
+        rev: v2.1.0
         hooks:
         -   id: r10k-validate
         -   id: puppet-validate
@@ -44,6 +44,6 @@ repos:
                 --no-arrow_on_right_operand_line-check,
             ]
     -   repo: https://github.com/pre-commit/mirrors-mypy
-        rev: v0.770
+        rev: v0.812
         hooks:
         -   id: mypy
