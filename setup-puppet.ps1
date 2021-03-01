@@ -25,6 +25,6 @@ Start-Service ssh-agent
 choco install gpg4win
 
 # Get my public key
-gpg --keyserver pgp.ocf.berkeley.edu --recv 0x6637DCB92ECCEC1F
+gpg --keyserver hkps://keys.openpgp.org --recv 6A812295D9BF330E5E393B182D8FF4BE4BD6E988
 
 mkdir $env:LOCALAPPDATA\personal-puppet
