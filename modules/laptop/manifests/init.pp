@@ -7,7 +7,6 @@ class laptop {
     include laptop::docker
     include laptop::xfreerdp
     include laptop::ssh
-    include laptop::tailscale
     class { 'unattended_upgrades':
       mail => { 'to' => 'ethan@ethanhs.me', },
     }
