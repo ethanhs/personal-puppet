@@ -1,8 +1,15 @@
 version: 5
+
 hierarchy:
-    -   name: "Common secret data"
+    -   name: "Laptop secret data"
         lookup_key: eyaml_lookup_key
-        path: common.eyaml
+        path: "mendeddrum.eyaml"
+        options:
+          cli_encrypt_command: 'sudo -i -u ethanhs gpg --encrypt --armor -r 2D8FF4BE4BD6E988'
+          cli_decrypt_command: 'sudo -i -u ethanhs gpg -d --armor'
+    -   name: "Desktop secret data"
+        lookup_key: eyaml_lookup_key
+        path: "towerofart.eyaml"
         options:
           cli_encrypt_command: '"C:\Program Files (x86)\GnuPG\bin\gpg.exe" --encrypt --armor -r 2D8FF4BE4BD6E988'
           cli_decrypt_command: '"C:\Program Files (x86)\GnuPG\bin\gpg.exe" -d --armor'
