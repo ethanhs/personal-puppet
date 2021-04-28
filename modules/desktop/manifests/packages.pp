@@ -192,6 +192,7 @@ class desktop::packages {
     'wireshark',
     'wsltty',
     'yubikey-manager',
+    'zadig',
   ]
 
   package { $all_other_packages:
