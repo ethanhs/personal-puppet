@@ -129,6 +129,7 @@ class desktop::packages {
     'discord',
     'docker-desktop',
     'docker-for-windows',
+    'dolphin',
     'dosbox',
     'DotNet4.5',
     'DotNet4.5.2',
