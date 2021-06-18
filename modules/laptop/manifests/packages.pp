@@ -98,7 +98,7 @@ class laptop::packages {
     'scrcpy',
 
     # gpg
-    'pinentry-gtk-2',
+    'pinentry-gtk2',
 
     # KDE/GSConnect
     'gnome-shell-extensions',
@@ -130,9 +130,11 @@ class laptop::packages {
     # plotinus
     'valac',
     'libgtk-3-dev',
-    # scrs
+    # bqskitrs
     'libopenblas-dev',
-    'libceres-dev'
+    'libceres-dev',
+    'libgfortran-9-dev',
+    'gfortran',
   ]
   package { $deps: ensure => 'latest' }
 
