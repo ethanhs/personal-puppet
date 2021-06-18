@@ -14,13 +14,6 @@ Host thewatcht
     RequestTTY yes
     RemoteCommand tmux a
 
-Host rdp
-    HostName ssh.ethanhs.me
-    User ethanhs
-    RemoteForward 3389 localhost:3389
-    ServerAliveInterval 2400
-    ServerAliveCountMax 100
-
 Host tunnel
     HostName ssh.ethanhs.me
     User ethanhs
@@ -35,15 +28,18 @@ Host panic
     HostName panic.ocf.berkeley.edu
     User ethanhs
 
-Host y2k
-    HostName y2k
-    User ethanhs
-    ProxyJump supernova
-
 Host supernova
     HostName supernova.ocf.berkeley.edu
     User ethanhs
 
-Host lightning
-    HostName lightning
-    ProxyJump panic
+Host dysk
+    HostName 100.114.217.36
+    User ethanhs
+
+Host quirm
+    HostName 100.110.103.10
+    User ethanhs
+
+Host raspberrypi
+    HostName 100.72.163.102
+    User pi
