@@ -1,5 +1,32 @@
 class laptop::packages {
 
+  apt::key { 'virtualbox':
+    id     => '0xA2F683C52980AECF',
+    server => 'https://www.virtualbox.org/download/oracle_vbox_2016.asc',
+  }
+
+  apt::source { 'virtualbox':
+    architecture => 'amd64',
+    location     => 'https://download.virtualbox.org/virtualbox/debian',
+    release      => 'focal',
+    repos        => 'contrib',
+    require      => Apt::Key['virtualbox'],
+  }
+
+  apt::key { 'vagrant':
+    id     => '0xDA418C88A3219F7B',
+    server => 'https://apt.releases.hashicorp.com/gpg',
+  }
+
+  apt::source { 'vagrant':
+    architecture => 'amd64',
+    location     => 'https://apt.releases.hashicorp.com',
+    release      => 'focal',
+    repos        => 'main',
+    require      => Apt::Key['vagrant'],
+  }
+
+
   apt::key { 'tailscale':
     id     => '2596A99EAAB33821893C0A79458CA832957F5868',
     source => 'https://pkgs.tailscale.com/stable/ubuntu/focal.gpg',
@@ -110,9 +137,14 @@ class laptop::packages {
     # misc
     'gparted',
     'scrcpy',
+    'coz-profiler',
 
     # gpg
     'pinentry-gtk2',
+
+    # cs162
+    'virtualbox',
+    'vagrant',
 
     # KDE/GSConnect
     'gnome-shell-extensions',
