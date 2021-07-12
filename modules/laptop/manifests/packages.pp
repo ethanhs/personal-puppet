@@ -1,5 +1,18 @@
 class laptop::packages {
 
+  apt::key { 'tailscale':
+    id     => '2596A99EAAB33821893C0A79458CA832957F5868',
+    source => 'https://pkgs.tailscale.com/stable/ubuntu/focal.gpg',
+  }
+
+  apt::source { 'tailscale':
+    architecture => 'amd64',
+    location     => 'https://pkgs.tailscale.com/stable/ubuntu',
+    release      => 'focal',
+    repos        => 'main',
+    require      => Apt::Key['tailscale'],
+  }
+
   apt::key { 'vscode':
     id     => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
     server => 'keyserver.ubuntu.com',
@@ -64,6 +77,7 @@ class laptop::packages {
     'iperf',
     'wireguard-tools',
     'restic',
+    'tailscale',
 
     # Python
     'python3-venv',
