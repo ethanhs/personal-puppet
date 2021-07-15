@@ -81,27 +81,23 @@ class desktop::packages {
     install_options => ['-source', 'windowsfeatures']
   }
 
-  download_file { 'Download rustup' :
+  package { 'Install Rust':
+    ensure          => installed,
+    source          => "C:\\temp\\rustup-init.exe",
+    install_options => ['--default-host=x86_64-pc-windows-msvc', '--default-toolchain=nightly', '-y']
+  } ~> download_file { 'Download rustup' :
     url                   => 'https://win.rustup.rs/x86_64',
     destination_directory => 'c:\\temp',
     destination_file      => 'rustup-init.exe'
   }
 
-  package { 'Install Rust':
-    ensure          => installed,
-    source          => "C:\\temp\\rustup-init.exe",
-    install_options => ['--default-host=x86_64-pc-windows-msvc', '--default-toolchain=nightly', '-y']
-  }
-
-  download_file { 'Download Zerotier' :
-    url                   => 'https://download.zerotier.com/dist/ZeroTier%20One.msi',
-    destination_directory => 'c:\\temp',
-    destination_file      => 'ZeroTierOne.msi'
-  }
-
   package { 'ZeroTier One':
     ensure => installed,
     source => "C:\\temp\\ZeroTierOne.msi"
+  } -> download_file { 'Download Zerotier' :
+    url                   => 'https://download.zerotier.com/dist/ZeroTier%20One.msi',
+    destination_directory => 'c:\\temp',
+    destination_file      => 'ZeroTierOne.msi'
   }
 
   exec { 'uninstall unwanted apps':
@@ -116,7 +112,6 @@ class desktop::packages {
     'androidstudio',
     'aria2',
     'blender',
-    'bonjour',
     'cmake',
     'cpu-z',
     'crystaldiskinfo',
@@ -128,7 +123,6 @@ class desktop::packages {
     'deluge',
     'discord',
     'docker-desktop',
-    'docker-for-windows',
     'dolphin',
     'dosbox',
     'DotNet4.5',
@@ -151,7 +145,6 @@ class desktop::packages {
     'imdisk-toolkit',
     'InkScape',
     'jq',
-    'keepassxc',
     'llvm',
     'lockhunter',
     'neovim',

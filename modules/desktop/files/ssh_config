@@ -2,27 +2,35 @@ Host *
 
 UserKnownHostsFile C:\Users\ethanhs\.ssh\known_hosts
 
+Host dysk
+    HostName 192.168.0.14
+    User ethanhs
+
+Host raspberrypi
+    HostName 192.168.0.9
+    User pi
+
 Host thewatch
     HostName ssh.ethanhs.me
-    User ethan
+    User ethanhs
     IdentityFile C:\Users\ethanhs\.ssh\id_rsa
 
 Host thewatcht
     HostName ssh.ethanhs.me
-    User ethan
+    User ethanhs
     RequestTTY yes
     RemoteCommand tmux a
 
 Host rdp
     HostName ssh.ethanhs.me
-    User ethan
+    User ethanhs
     RemoteForward 3389 localhost:3389
     ServerAliveInterval 2400
     ServerAliveCountMax 100
 
 Host tunnel
     HostName ssh.ethanhs.me
-    User ethan
+    User ethanhs
     LocalForward 5900 127.0.0.1:5900
     LocalForward 8112 127.0.0.1:8112
     LocalForward 8385 127.0.0.1:8384

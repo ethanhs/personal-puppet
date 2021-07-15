@@ -10,7 +10,7 @@ node default {
     'mendeddrum' : {
       include laptop
     }
-    'towerofart' : {
+    'quirm' : {
       include desktop
     }
     default : {
