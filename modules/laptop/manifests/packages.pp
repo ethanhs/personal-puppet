@@ -62,6 +62,8 @@ class laptop::packages {
     'git',
     'ripgrep',
     'iperf',
+    'wireguard-tools',
+    'restic',
 
     # Python
     'python3-venv',
@@ -95,6 +97,9 @@ class laptop::packages {
     'gparted',
     'scrcpy',
 
+    # gpg
+    'pinentry-gtk2',
+
     # KDE/GSConnect
     'gnome-shell-extensions',
     'gnome-shell-extension-gsconnect',
@@ -125,9 +130,11 @@ class laptop::packages {
     # plotinus
     'valac',
     'libgtk-3-dev',
-    # scrs
+    # bqskitrs
     'libopenblas-dev',
-    'libceres-dev'
+    'libceres-dev',
+    'libgfortran-9-dev',
+    'gfortran',
   ]
   package { $deps: ensure => 'latest' }
 
@@ -135,6 +142,9 @@ class laptop::packages {
   package {'aptitude': ensure => 'latest' }
   package {'devscripts': ensure => 'latest' }
   package {'git-buildpackage': ensure => 'latest' }
+
+  # cryptsetup breaks zfs
+  package {'cryptsetup': ensure => 'purged' }
 
   $deadsnakes_pkgs = ['python3.7-dev', 'python3.8-dev', 'python3.9-dev']
   apt::ppa { 'ppa:deadsnakes/ppa': } ->
