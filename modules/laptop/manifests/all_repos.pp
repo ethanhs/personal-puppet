@@ -3,7 +3,7 @@ class laptop::all_repos {
     ensure => 'directory',
     owner  => 'ethanhs',
     group  => 'ethanhs',
-    mode   => '0660',
+    mode   => '0600',
   }
 
   file { '/home/ethanhs/.all_repos/all_repos.json':
@@ -11,7 +11,7 @@ class laptop::all_repos {
     content => lookup('laptop::all_repos::config_file_content'),
     owner   => 'ethanhs',
     group   => 'ethanhs',
-    mode    => '0660',
+    mode    => '0600',
   }
 
 }
