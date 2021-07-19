@@ -6,6 +6,7 @@ class laptop::gpg {
   }
 
   file { 'gpg.conf':
+    mode   => '600',
     path   => '/home/ethanhs/.gnupg/gpg.conf',
     source => 'puppet:///modules/laptop/gpg.conf'
   }
