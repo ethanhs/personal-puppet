@@ -9,11 +9,10 @@ class desktop::backup {
     ensure    => 'present',
     command   => "${::system32}\\WindowsPowerShell\\v1.0\\powershell.exe",
     arguments => "-File ${backup_script}",
-    enabled   => 'false',
+    enabled   => 'true',
     trigger   => [{
-      'schedule'    => 'weekly',
-      'start_time'  => '06:00',
-      'day_of_week' => ['sun'],
+      'schedule'   => 'daily',
+      'start_time' => '06:00',
     }],
     user      => 'system',
   }
