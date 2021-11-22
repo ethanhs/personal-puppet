@@ -6,7 +6,6 @@ Host thewatch
     HostName ssh.ethanhs.me
     User ethanhs
     IdentityFile /home/ethanhs/.ssh/id_ed25519
-    RemoteForward /run/user/1000/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent.extra
 
 Host thewatcht
     HostName ssh.ethanhs.me
