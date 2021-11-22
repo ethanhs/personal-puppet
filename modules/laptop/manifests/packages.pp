@@ -199,6 +199,12 @@ class laptop::packages {
     require => Exec['apt_update'],
   }
 
+  apt::ppa { 'ppa:thopiekar/openrgb': } ->
+  package { 'openrgb':
+    ensure  => 'latest',
+    require => Exec['apt_update']
+  }
+
   apt::ppa { 'ppa:unit193/encryption': } ->
   package { 'veracrypt':
     ensure  => latest,
