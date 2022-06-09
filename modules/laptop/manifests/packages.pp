@@ -135,16 +135,13 @@ class laptop::packages {
     'hexchat',
 
     # misc
+    'tmux',
     'gparted',
     'scrcpy',
     'coz-profiler',
 
     # gpg
     'pinentry-gtk2',
-
-    # cs162
-    'virtualbox',
-    'vagrant',
 
     # KDE/GSConnect
     'gnome-shell-extensions',
