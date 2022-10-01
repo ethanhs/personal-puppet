@@ -6,10 +6,6 @@ Host dysk
     HostName 192.168.0.14
     User ethanhs
 
-Host raspberrypi
-    HostName 192.168.0.9
-    User pi
-
 Host thewatch
     HostName ssh.ethanhs.me
     User ethanhs

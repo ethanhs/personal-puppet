@@ -9,7 +9,7 @@ class desktop::all_repos {
 
   file { $all_repos_config_path:
     ensure  => file,
-    content => lookup('desktop::all_repos::config_file_content')
+    content => lookup('shell::all_repos::config_file_content')
   }
 
 }
