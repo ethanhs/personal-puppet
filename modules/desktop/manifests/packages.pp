@@ -15,17 +15,6 @@ class desktop::packages {
     install_options => ['-installArgs', '"', '/client-service', '/efu-association', '/folder-context-menu', '"'],
   }
 
-  # Install a minimal Python 2, installing just the Tools
-  # (not added to the path or registering for *.py)
-  # The names for this were not easy to find documentation for
-  # All I could find for the MSI customization arguments was
-  # https://www.python.org/download/releases/2.4/msi/
-  package { 'python2':
-    ensure          => latest,
-    provider        => 'chocolatey',
-    install_options => ['-installArgs', '"', 'ADDLOCAL=Tools', '"'],
-  }
-
   # Python 3 is pre-req to puppet running, so it is in setup-puppet
 
   # Install openssh with the ssh-server functionality on
