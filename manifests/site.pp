@@ -8,10 +8,14 @@ node default {
   }
   case $facts['hostname'] {
     'mendeddrum' : {
+      include computer
       include laptop
+      include shell
     }
     'quirm' : {
+      include computer
       include desktop
+      include shell
     }
     default : {
       fail('Unknown machine')

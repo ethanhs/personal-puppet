@@ -1,6 +1,6 @@
 # Configure Explorer/Windows Shell to show hidden files, etc.
 
-class desktop::explorer {
+class computer::explorer {
 
   # Show hidden files
   registry_value { 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden':

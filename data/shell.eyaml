@@ -1,4 +1,4 @@
-laptop::all_repos::config_file_content: >
+shell::all_repos::config_file_content: >
   ENC[cli,LS0tLS1CRUdJTiBQR1AgTUVTU0FHRS0tLS0tCgpoRjREYktuVVZJZDNoVHNT
   QVFkQTlUcW1UYWZDMHVyWG1XU25LVGhxTk4rTk52d0dnQVpLUldJa3JvSDYw
   Mmt3CkJkOTBMRDcyZmxwVk9TSk9SeDl4UXkzUVVta0VnaGJ6TUVZYno4WXJy
@@ -11,3 +11,4 @@ laptop::all_repos::config_file_content: >
   YklCZFZ5ZFhaVU44aQpHcnJzL21qZi92Mm0xbzFNMkRIbmlQYlQwb3VFREp2
   MWVrZTZKaGtzS1JvQ3RVYUlzL1ROcDJsbU9OcUNvWmVaCktmdzBoQjkycm5J
   PQo9RWpTUAotLS0tLUVORCBQR1AgTUVTU0FHRS0tLS0tCg==]
+
