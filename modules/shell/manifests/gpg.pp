@@ -1,4 +1,4 @@
-class desktop::gpg {
+class shell::gpg {
 
   file { 'gpg-agent.conf':
     path   => "${::windows_env['APPDATA']}\\gnupg\\gpg-agent.conf",

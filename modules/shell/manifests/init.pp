@@ -1,7 +1,6 @@
 class shell {
-    include all_repos;
-    include clink;
-    include git;
-    include gpg;
-    include ssh;
+    include shell::clink
+    include shell::git
+    include shell::gpg
+    include shell::ssh
 }

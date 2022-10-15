@@ -1,3 +1,3 @@
 class laptop {
-    include laptop::packages;
+    include laptop::packages
 }

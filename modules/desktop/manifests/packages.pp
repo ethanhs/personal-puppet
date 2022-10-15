@@ -33,7 +33,12 @@ class desktop::packages {
   }
 
   $desktop_packages = [
-
+    'adb',
+    'androidstudio',
+    'blender',
+    'cuda',
+    'dolphin',
+    'obs-studio',
   ]
 
   package { $desktop_packages:
