@@ -1,6 +1,6 @@
 class laptop::packages {
     package { 'throttlestop':
-    ensure          => latest,
-    provider        => 'chocolatey',
+    ensure   => latest,
+    provider => 'chocolatey',
   }
 }
