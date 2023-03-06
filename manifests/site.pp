@@ -6,7 +6,7 @@ node default {
   Package {
     allow_virtual => false,
   }
-  case $facts['hostname'] {
+  case $facts['networking']['hostname'] {
     'mendeddrum' : {
       include computer
       include laptop

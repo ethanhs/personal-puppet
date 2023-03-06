@@ -1,7 +1,7 @@
 class shell::clink {
   exec { 'checkout clink-completions':
-    command  => "cd ${::windows_env['LOCALAPPDATA']}/clink ; git init ; git remote add origin https://github.com/vladimir-kotikov/clink-completions ; git pull origin master",
-    onlyif   => "-not [System.IO.File]::Exists(\"${::windows_env['LOCALAPPDATA']}/clink/.git\")",
+    command  => "cd ${facts['windows_env']['LOCALAPPDATA']}/clink ; git init ; git remote add origin https://github.com/vladimir-kotikov/clink-completions ; git pull origin master",
+    onlyif   => "-not [System.IO.File]::Exists(\"${facts['windows_env']['LOCALAPPDATA']}/clink/.git\")",
     provider => powershell,
   }
 
@@ -12,7 +12,7 @@ class shell::clink {
   }
 
   file { 'git_prompt.lua':
-    path   => "${::windows_env['LOCALAPPDATA']}/clink/git_prompt.lua",
+    path   => "${facts['windows_env']['LOCALAPPDATA']}/clink/git_prompt.lua",
     source => 'puppet:///modules/shell/git_prompt.lua',
   }
 }
